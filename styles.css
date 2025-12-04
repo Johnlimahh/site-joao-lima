@@ -92,11 +92,8 @@ body {
     justify-content: center;
     position: relative;
     background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 100%);
-    
-    /* ADICIONADOS (estavam faltando) */
     background-size: cover;
     background-attachment: scroll;
-
     overflow: hidden;
 }
 
@@ -107,11 +104,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-
-    /* SVG CORRIGIDO (encode correto do caractere ♪) */
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='100' opacity='0.03'%3E%E2%99%AA%3C/text%3E%3C/svg%3E");
-
-    background-repeat: repeat; /* garante textura */
+    background-repeat: repeat;
     animation: float 20s infinite linear;
 }
 
@@ -129,7 +123,6 @@ body {
     z-index: 2;
     text-align: center;
 }
-
 
 .glitch {
     font-size: 5rem;
@@ -275,12 +268,13 @@ section {
 }
 
 .about-image img {
-    width: 350px;      /* tamanho da imagem */
-    height: auto;      /* mantém proporção */
-    border-radius: 12px; 
+    width: 350px;
+    height: auto;
+    border-radius: 12px;
     object-fit: cover;
     display: block;
 }
+
 .image-placeholder {
     width: 100%;
     aspect-ratio: 1;
@@ -306,36 +300,33 @@ section {
 /* Music Section */
 .music-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.album-cover {
-    width: 100%;
-    aspect-ratio: 1;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
+.album-card {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
 }
-
 
 .album-card:hover {
     transform: translateY(-10px);
 }
 
 .album-cover {
+    position: relative;
     width: 100%;
-    aspect-ratio: 1;
-    position: relative;
+    height: 300px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
-.album-cover {
-    position: relative;
-    overflow: hidden;
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .play-button {
@@ -360,6 +351,7 @@ section {
 .album-cover:hover .play-button {
     opacity: 1;
 }
+
 .album-card h3 {
     padding: 1rem;
     font-size: 1.2rem;
@@ -545,11 +537,12 @@ section {
         flex-direction: column;
         text-align: center;
     }
+
     .profile-photo {
-    width: 350px;      /* tamanho da imagem */
-    height: auto;      /* mantém a proporção correta */
-    border-radius: 10px; /* opcional, deixa as bordas arredondadas */
-    object-fit: cover;
-    display: block;
+        width: 350px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        display: block;
     }
 }
