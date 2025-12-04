@@ -63,7 +63,12 @@ document.querySelectorAll('.album-card, .show-item').forEach(el => {
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
-
+document.querySelectorAll('.album-cover').forEach(card => {
+    const thumb = card.getAttribute('data-thumb');
+    if (thumb) {
+        card.style.backgroundImage = `url('${thumb}')`;
+    }
+});
 // Form submission
 const contactForm = document.querySelector('.contact-form');
 contactForm.addEventListener('submit', (e) => {
