@@ -316,9 +316,9 @@ section {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 10px;
     position: relative;
 }
+
 
 .album-card:hover {
     transform: translateY(-10px);
