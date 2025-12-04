@@ -310,12 +310,14 @@ section {
     gap: 2rem;
 }
 
-.album-card {
-    background: var(--secondary-color);
+.album-cover {
+    width: 100%;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    cursor: pointer;
+    position: relative;
 }
 
 .album-card:hover {
