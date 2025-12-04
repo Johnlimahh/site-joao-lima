@@ -325,11 +325,17 @@ section {
 .album-cover {
     width: 100%;
     aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--primary-color), var(--gray));
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+}
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .play-button {
