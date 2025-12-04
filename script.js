@@ -92,7 +92,7 @@ contactForm.addEventListener('submit', (e) => {
 window.addEventListener('scroll', () => {
     const hero = document.querySelector('.hero');
     const scrolled = window.pageYOffset;
-    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    hero.style.backgroundPositionY = `${scrolled * 0.3}px`;
 });
 
 // Album cards - efeito de play
