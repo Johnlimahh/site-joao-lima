@@ -522,4 +522,11 @@ section {
         flex-direction: column;
         text-align: center;
     }
+    .profile-photo {
+    width: 350px;      /* tamanho da imagem */
+    height: auto;      /* mantém a proporção correta */
+    border-radius: 10px; /* opcional, deixa as bordas arredondadas */
+    object-fit: cover;
+    display: block;
+    }
 }
