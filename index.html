@@ -163,11 +163,13 @@
                 <div class="divider"></div>
             </div>
             <div class="contact-content">
-                <form class="contact-form">
-                    <input type="text" placeholder="Seu Nome" required>
-                    <input type="email" placeholder="Seu Email" required>
-                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                <form class="contact-form" action="https://formsubmit.co/joaobody27@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="nome" placeholder="Seu Nome" required>
+                <input type="email" name="email" placeholder="Seu Email" required>
+                <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
                 </form>
                 <div class="social-links">
                     <h3>Siga-me</h3>
