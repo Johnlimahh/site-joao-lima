@@ -63,12 +63,6 @@ document.querySelectorAll('.album-card, .show-item').forEach(el => {
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
-document.querySelectorAll('.album-cover').forEach(card => {
-    const thumb = card.getAttribute('data-thumb');
-    if (thumb) {
-        card.style.backgroundImage = `url('${thumb}')`;
-    }
-});
 // Form submission
 const contactForm = document.querySelector('.contact-form');
 contactForm.addEventListener('submit', (e) => {
@@ -100,7 +94,7 @@ window.addEventListener('scroll', () => {
     hero.style.backgroundPositionY = `${scrolled * 0.3}px`;
 });
 
-// Album cards - efeito de play
+// Album cards - efeito de play    
 document.querySelectorAll('.album-card').forEach(card => {
     card.addEventListener('click', () => {
         const playButton = card.querySelector('.play-button');
