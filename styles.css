@@ -92,6 +92,11 @@ body {
     justify-content: center;
     position: relative;
     background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 100%);
+    
+    /* ADICIONADOS (estavam faltando) */
+    background-size: cover;
+    background-attachment: scroll;
+
     overflow: hidden;
 }
 
@@ -102,7 +107,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="100" opacity="0.03">♪</text></svg>');
+
+    /* SVG CORRIGIDO (encode correto do caractere ♪) */
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='100' opacity='0.03'%3E%E2%99%AA%3C/text%3E%3C/svg%3E");
+
+    background-repeat: repeat; /* garante textura */
     animation: float 20s infinite linear;
 }
 
@@ -120,6 +129,7 @@ body {
     z-index: 2;
     text-align: center;
 }
+
 
 .glitch {
     font-size: 5rem;
