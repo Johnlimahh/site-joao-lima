@@ -39,7 +39,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// EFEITO DE ENGOLIR NA SEÇÃO SOBRE
+// EFEITO DE ENGOLIR NA SEÇÃO SOBRE - CORRIGIDO
 function parallaxAboutSection() {
     const aboutSection = document.querySelector('.about');
     const aboutImage = document.querySelector('.about-image');
@@ -48,18 +48,26 @@ function parallaxAboutSection() {
     if (!aboutSection || !aboutImage || !aboutText) return;
     
     const rect = aboutSection.getBoundingClientRect();
-    const scrollProgress = 1 - (rect.top / window.innerHeight);
+    const windowHeight = window.innerHeight;
     
-    if (scrollProgress > 0 && scrollProgress < 1.5) {
-        const moveAmount = scrollProgress * 100;
-        const opacity = Math.max(0, 1 - scrollProgress * 0.8);
-        const scale = Math.max(0.8, 1 - scrollProgress * 0.2);
+    // Calcula quando a seção está saindo da tela (rolando para baixo)
+    if (rect.top < 0 && rect.bottom > 0) {
+        const scrollProgress = Math.abs(rect.top) / windowHeight;
+        const moveAmount = scrollProgress * 150;
+        const opacity = Math.max(0, 1 - scrollProgress * 1.5);
+        const scale = Math.max(0.7, 1 - scrollProgress * 0.3);
         
-        aboutImage.style.transform = `translateY(${moveAmount}px) scale(${scale})`;
+        aboutImage.style.transform = `translateY(-${moveAmount}px) scale(${scale})`;
         aboutImage.style.opacity = opacity;
         
-        aboutText.style.transform = `translateY(${moveAmount}px) scale(${scale})`;
+        aboutText.style.transform = `translateY(-${moveAmount}px) scale(${scale})`;
         aboutText.style.opacity = opacity;
+    } else if (rect.top >= 0) {
+        // Reset quando volta ao topo
+        aboutImage.style.transform = 'translateY(0) scale(1)';
+        aboutImage.style.opacity = 1;
+        aboutText.style.transform = 'translateY(0) scale(1)';
+        aboutText.style.opacity = 1;
     }
 }
 
