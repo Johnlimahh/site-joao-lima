@@ -4,8 +4,6 @@ const navLinks = document.querySelector('.nav-links');
 
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-    
-    // Animação do menu hamburguer
     menuToggle.classList.toggle('active');
 });
 
@@ -41,7 +39,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animação de entrada dos elementos
+// Animação de entrada dos elementos (DO SEU CÓDIGO ORIGINAL)
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -63,53 +61,34 @@ document.querySelectorAll('.album-card, .show-item').forEach(el => {
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
-// Form submission
-const contactForm = document.querySelector('.contact-form');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Simulação de envio
-    const button = contactForm.querySelector('button');
-    const originalText = button.textContent;
-    button.textContent = 'Enviando...';
-    button.disabled = true;
-    
-    setTimeout(() => {
-        button.textContent = 'Mensagem Enviada!';
-        button.style.background = '#2a9d8f';
-        
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.disabled = false;
-            button.style.background = '';
-            contactForm.reset();
-        }, 2000);
-    }, 1500);
-});
 
-// Efeito parallax no hero
+// Efeito parallax no hero (DO SEU CÓDIGO ORIGINAL)
 window.addEventListener('scroll', () => {
     const hero = document.querySelector('.hero');
     const scrolled = window.pageYOffset;
     hero.style.backgroundPositionY = `${scrolled * 0.3}px`;
 });
 
-// Album cards - efeito de play    
+// Album cards - efeito de play
 document.querySelectorAll('.album-card').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+        // Não fazer nada se clicou no botão de play (link)
+        if (e.target.classList.contains('play-button') || e.target.closest('.play-button')) {
+            return;
+        }
+        
         const playButton = card.querySelector('.play-button');
-        playButton.style.transform = 'scale(1.2)';
+        playButton.style.transform = 'translate(-50%, -50%) scale(1.2)';
         
         setTimeout(() => {
-            playButton.style.transform = 'scale(1)';
+            playButton.style.transform = 'translate(-50%, -50%) scale(1)';
         }, 200);
         
-        // Aqui você pode adicionar lógica para tocar música
         console.log('Tocando:', card.querySelector('h3').textContent);
     });
 });
 
-// Efeito de digitação no título
+// Efeito glitch no título
 const glitchText = document.querySelector('.glitch');
 let glitchInterval;
 
