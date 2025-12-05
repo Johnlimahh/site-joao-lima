@@ -39,7 +39,33 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animação de entrada dos elementos (DO SEU CÓDIGO ORIGINAL)
+// EFEITO DE ENGOLIR NA SEÇÃO SOBRE
+function parallaxAboutSection() {
+    const aboutSection = document.querySelector('.about');
+    const aboutImage = document.querySelector('.about-image');
+    const aboutText = document.querySelector('.about-text');
+    
+    if (!aboutSection || !aboutImage || !aboutText) return;
+    
+    const rect = aboutSection.getBoundingClientRect();
+    const scrollProgress = 1 - (rect.top / window.innerHeight);
+    
+    if (scrollProgress > 0 && scrollProgress < 1.5) {
+        const moveAmount = scrollProgress * 100;
+        const opacity = Math.max(0, 1 - scrollProgress * 0.8);
+        const scale = Math.max(0.8, 1 - scrollProgress * 0.2);
+        
+        aboutImage.style.transform = `translateY(${moveAmount}px) scale(${scale})`;
+        aboutImage.style.opacity = opacity;
+        
+        aboutText.style.transform = `translateY(${moveAmount}px) scale(${scale})`;
+        aboutText.style.opacity = opacity;
+    }
+}
+
+window.addEventListener('scroll', parallaxAboutSection);
+
+// Animação de entrada dos elementos
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -62,7 +88,7 @@ document.querySelectorAll('.album-card, .show-item').forEach(el => {
     observer.observe(el);
 });
 
-// Efeito parallax no hero (DO SEU CÓDIGO ORIGINAL)
+// Efeito parallax no hero
 window.addEventListener('scroll', () => {
     const hero = document.querySelector('.hero');
     const scrolled = window.pageYOffset;
@@ -72,7 +98,6 @@ window.addEventListener('scroll', () => {
 // Album cards - efeito de play
 document.querySelectorAll('.album-card').forEach(card => {
     card.addEventListener('click', (e) => {
-        // Não fazer nada se clicou no botão de play (link)
         if (e.target.classList.contains('play-button') || e.target.closest('.play-button')) {
             return;
         }
