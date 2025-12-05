@@ -109,6 +109,15 @@ body {
     animation: float 20s infinite linear;
 }
 
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -275,22 +284,6 @@ section {
     display: block;
 }
 
-.image-placeholder {
-    width: 100%;
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--primary-color), var(--dark-bg));
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-placeholder svg {
-    width: 60%;
-    height: 60%;
-    opacity: 0.5;
-}
-
 .about-text p {
     margin-bottom: 1rem;
     font-size: 1.1rem;
@@ -334,7 +327,7 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(230, 57, 70, 0.9);
     color: white;
     width: 60px;
     height: 60px;
@@ -345,11 +338,17 @@ section {
     font-size: 24px;
     text-decoration: none;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: all 0.3s;
+    padding-left: 5px;
 }
 
 .album-cover:hover .play-button {
     opacity: 1;
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(230, 57, 70, 1);
 }
 
 .album-card h3 {
@@ -529,6 +528,12 @@ section {
         grid-template-columns: 1fr;
     }
 
+    .about-image img {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
     .music-grid {
         grid-template-columns: 1fr;
     }
@@ -536,13 +541,5 @@ section {
     .show-item {
         flex-direction: column;
         text-align: center;
-    }
-
-    .profile-photo {
-        width: 350px;
-        height: auto;
-        border-radius: 10px;
-        object-fit: cover;
-        display: block;
     }
 }
