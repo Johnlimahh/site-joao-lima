@@ -264,9 +264,18 @@ section {
     margin: 0 auto;
 }
 
-/* About Section */
+/* About Section com Efeito de Engolir */
 .about {
+    position: relative;
     background: var(--secondary-color);
+    overflow: hidden;
+}
+
+.about-wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .about-content {
@@ -274,6 +283,12 @@ section {
     grid-template-columns: 1fr 2fr;
     gap: 3rem;
     align-items: center;
+    transform-style: preserve-3d;
+}
+
+.about-image,
+.about-text {
+    will-change: transform, opacity;
 }
 
 .about-image img {
@@ -291,6 +306,12 @@ section {
 }
 
 /* Music Section */
+.music {
+    position: relative;
+    z-index: 2;
+    background: var(--dark-bg);
+}
+
 .music-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
