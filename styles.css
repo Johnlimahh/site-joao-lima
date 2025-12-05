@@ -243,6 +243,7 @@ body {
 /* Section Styling */
 section {
     padding: 80px 0;
+    position: relative;
 }
 
 .section-header {
@@ -264,18 +265,13 @@ section {
     margin: 0 auto;
 }
 
-/* About Section com Efeito de Engolir */
+/* About Section SEM filtro azul */
 .about {
-    position: relative;
-    background: var(--secondary-color);
-    overflow: hidden;
-}
-
-.about-wrapper {
-    position: relative;
+    background: var(--dark-bg);
     min-height: 100vh;
     display: flex;
     align-items: center;
+    overflow: visible;
 }
 
 .about-content {
@@ -283,12 +279,11 @@ section {
     grid-template-columns: 1fr 2fr;
     gap: 3rem;
     align-items: center;
-    transform-style: preserve-3d;
 }
 
 .about-image,
 .about-text {
-    will-change: transform, opacity;
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
 
 .about-image img {
@@ -307,9 +302,9 @@ section {
 
 /* Music Section */
 .music {
+    background: var(--secondary-color);
     position: relative;
     z-index: 2;
-    background: var(--dark-bg);
 }
 
 .music-grid {
@@ -319,7 +314,7 @@ section {
 }
 
 .album-card {
-    background: var(--secondary-color);
+    background: var(--dark-bg);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s;
@@ -384,7 +379,7 @@ section {
 
 /* Shows Section */
 .shows {
-    background: var(--secondary-color);
+    background: var(--dark-bg);
 }
 
 .shows-list {
@@ -397,7 +392,7 @@ section {
     align-items: center;
     gap: 2rem;
     padding: 1.5rem;
-    background: var(--dark-bg);
+    background: var(--secondary-color);
     border-radius: 10px;
     margin-bottom: 1rem;
     border-left: 4px solid var(--primary-color);
@@ -453,6 +448,10 @@ section {
 }
 
 /* Contact Section */
+.contact {
+    background: var(--secondary-color);
+}
+
 .contact-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -470,7 +469,7 @@ section {
 .contact-form input,
 .contact-form textarea {
     padding: 15px;
-    background: var(--secondary-color);
+    background: var(--dark-bg);
     border: 2px solid transparent;
     border-radius: 5px;
     color: var(--light-text);
@@ -497,7 +496,7 @@ section {
 
 .social-icon {
     padding: 12px 20px;
-    background: var(--secondary-color);
+    background: var(--dark-bg);
     color: var(--light-text);
     text-decoration: none;
     border-radius: 5px;
